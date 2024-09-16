@@ -1,30 +1,27 @@
 // Créer un événement au scroll
-const nav = document.querySelector("nav")
-const imgImprovise = document.getElementById('imgImprovise');
-const popUp = document.getElementById("popup");
-const closeBtn = document.getElementById("closeBtn");
+const nav = document.querySelector("nav");
 
-window.addEventListener("scroll", ()=>{
-  if(window.scrollY > 10){
-    nav.style.height ="45px";
-  }
-  else {
-    nav.style.height= "90px"
-  }
+window.addEventListener("scroll", () => {
+  let scrollValue =
+    (window.scrollY + window.innerHeight) / document.body.offsetHeight;
 
-  if(window.scrollY > 200){
-    imgImprovise.style.opacity="1";
-    imgImprovise.style.transform="translateX(0)"
+  if (scrollValue > 0.1) {
+    nav.style.height = "45px";
+  } else {
+    nav.style.height = "90px";
   }
 
-  if(window.scrollY > 1500){
-    popUp.style.opacity="1";
-    popUp.style.transform="translateX(0)";
-  } 
-})
+  if (scrollValue > 0.4) {
+    imgImprovise.style.opacity = "1";
+    imgImprovise.style.transform = "translateX(0)";
+  }
 
-closeBtn.addEventListener("click",()=>{
-  popUp.remove();
-})
+  if (scrollValue > 0.8) {
+    popup.style.opacity = "1";
+    popup.style.transform = "translateX(0)";
+  }
+});
 
-
+closeBtn.addEventListener("click", () => {
+  popup.remove();
+});
