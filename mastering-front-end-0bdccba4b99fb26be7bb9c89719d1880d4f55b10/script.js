@@ -1,14 +1,12 @@
 // Créer un événement au scroll
-const nav = document.querySelector("nav");
-
 window.addEventListener("scroll", () => {
   let scrollValue =
     (window.scrollY + window.innerHeight) / document.body.offsetHeight;
 
-  if (scrollValue > 0.1) {
-    nav.style.height = "45px";
+  if (scrollValue > 0.35) {
+    navbar.style.height = "45px";
   } else {
-    nav.style.height = "90px";
+    navbar.style.height = "90px";
   }
 
   if (scrollValue > 0.4) {
